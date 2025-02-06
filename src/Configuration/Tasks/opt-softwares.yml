@@ -1,0 +1,104 @@
+---
+title: Optional Softwares
+description: Choose optional applications to install
+privilege: TrustedInstaller
+actions:
+
+  # Python 3.11
+  - !writeStatus: {status: 'Installing Python 3.11', option: "install-python"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install Python'
+      type: REG_SZ
+      data: 'cmd /c winget install Python.Python.3.11 -e --silent && setx PATH "%PATH%;C:\\Python311"'
+      option: "install-python"
+
+  # LibreWolf
+  - !writeStatus: {status: 'Installing LibreWolf', option: "install-librewolf"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install LibreWolf'
+      type: REG_SZ
+      data: 'cmd /c start "" winget install LibreWolf.LibreWolf -e'
+      option: "install-librewolf"
+
+  # Notepad++
+  - !writeStatus: {status: 'Installing Notepad++', option: "install-notepadpp"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install Notepad++'
+      type: REG_SZ
+      data: 'cmd /c winget install Notepad++.Notepad++ -e -h'
+      option: "install-notepadpp"
+
+  # VLC Media Player
+  - !writeStatus: {status: 'Installing VLC Media Player', option: "install-vlc"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install VLC'
+      type: REG_SZ
+      data: 'cmd /c start "" winget install VideoLAN.VLC -e -h'
+      option: "install-vlc"
+
+  # Koodo Reader
+  - !writeStatus: {status: 'Installing Koodo Reader', option: "install-koodo"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install Koodo Reader'
+      type: REG_SZ
+      data: 'cmd /c winget install AppbyTroye.KoodoReader -e -h'
+      option: "install-koodo"
+
+  # Microsoft Visual C++ Redistributables
+  - !writeStatus: {status: 'Installing Visual C++ Redistributables', option: "install-vcredist"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install VC++'
+      type: REG_SZ
+      data: 'cmd /c winget install Microsoft.VCRedist.2012.x64 -e && winget install Microsoft.VCRedist.2012.x86 -e && winget install Microsoft.VCRedist.2013.x64 -e && winget install Microsoft.VCRedist.2013.x86 -e && winget install Microsoft.VCRedist.2015+.x64 -e && winget install Microsoft.VCRedist.2015+.x86 -e'
+      option: "install-vcredist"
+
+  # Git
+  - !writeStatus: {status: 'Installing Git', option: "install-git"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install Git'
+      type: REG_SZ
+      data: 'cmd /c winget install Git.Git -e --silent && setx PATH "%PATH%;C:\\Program Files\\Git\\bin"'
+      option: "install-git"
+
+  # Calibre
+  - !writeStatus: {status: 'Installing Calibre', option: "install-calibre"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install Calibre'
+      type: REG_SZ
+      data: 'cmd /c start "" winget install calibre.calibre -e -h'
+      option: "install-calibre"
+
+  # Microsoft PowerToys
+  - !writeStatus: {status: 'Installing Microsoft PowerToys', option: "install-powertoys"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install PowerToys'
+      type: REG_SZ
+      data: 'cmd /c start "" winget install Microsoft.PowerToys -e -h'
+      option: "install-powertoys"
+
+  # qBittorrent
+  - !writeStatus: {status: 'Installing qBittorrent', option: "install-qbittorrent"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install qBittorrent'
+      type: REG_SZ
+      data: 'cmd /c winget install qBittorrent.qBittorrent -e'
+      option: "install-qbittorrent"
+
+  # Obsidian
+  - !writeStatus: {status: 'Installing Obsidian', option: "install-obsidian"}
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+      value: 'Install Obsidian'
+      type: REG_SZ
+      data: 'cmd /c winget install Obsidian.Obsidian -e -h'
+      option: "install-obsidian"
